@@ -4,7 +4,7 @@ function show {
   echo -ne "$1\033[0K\r"
 }
 function count { 
-  for minutes in `seq $2 1`; do 
+  for minutes in `seq $(($2-1)) 0`; do 
     for seconds in `seq -f "%02g" 59 0`; do 
       show "$1 $minutes:$seconds"; sleep 1; 
     done 
